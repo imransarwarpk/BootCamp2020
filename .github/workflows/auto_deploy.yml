@@ -8,7 +8,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
+    name: Deploying to surge
     steps:
     - uses: actions/checkout@v2
     - name: Install Node 
@@ -16,10 +17,10 @@ jobs:
       with:
         node-version:12
         
-    name: Install Surge
+    - name: Install Surge
       run: npm install -g surge
       
-    name: Run Surge
+    - name: Run Surge
       run:  surge ./ bootCamp_Setup_ImranSarwar.surge.sh -- token ${{ secrets.SurgeToken }}
        
        
